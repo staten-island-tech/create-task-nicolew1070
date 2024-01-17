@@ -1,7 +1,12 @@
 import "../css/style.css";
+import { DOMSelectors } from "./num";
 const num =[1,2,3,4,5,6,7,8,9,10];
 
-function card (arr) {
+function search () {
+    let search = DOMSelectors.search.value
+}
+
+function search (arr) {
     DOMSelectors.form.addEventListener("click", function (event) {
      event.preventDefault();
      let search = DOMSelectors.search.value
@@ -11,15 +16,17 @@ function card (arr) {
      newArr();
     })}; 
 
-    function result (bmi) {
-        if (bmi < num) {
-            console.log("Underweight");
-        } else if (bmi >= 18.5 && bmi <= 24.9) {
-            console.log("Healthy weight");
-        } else if (bmi >= 35 && bmi <= 29.9) {
-            console.log("Overweight")
-        } else {
-            console.log("Obese")
-        }
-        }
-        result(bmi);
+//general idea -> probably doesn't work though
+//if the user input number is higher to the real number => results show higher 
+function result () {
+    if (search < num) {
+        console.log("Lower");
+    } else if (search > num) {
+        console.log("Higher");
+    } else if (search === num) {
+        console.log("Correct!");
+    } else {
+        console.log("Error!")
+    }
+}
+result ();
