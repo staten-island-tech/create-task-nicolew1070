@@ -2,10 +2,27 @@ import "../css/style.css";
 import { DOMSelectors } from "./num";
 const num =[1,2,3,4,5,6,7,8,9,10];
 
-function search () {
+function see () {
+let maybe = [];
     let search = DOMSelectors.search.value
-}
+    if (isNaN(find)) {
+        maybe = "Input is not a number";
+    } else if (find < 5) {
+        console.log("Lower");
+    } else if (find > 5 ) {
+        console.log("Higher");
+    } else {
+        console.log("Correct!")
+    }
 
+
+
+    /* let guess = (search < num) ? "Higher":"Lower";
+    document.getElementById("demo").innerHTML = guess; */
+}
+see ();
+
+/* 
 function search (arr) {
     DOMSelectors.form.addEventListener("click", function (event) {
      event.preventDefault();
@@ -29,4 +46,4 @@ function result () {
         console.log("Error!")
     }
 }
-result ();
+result (); */
