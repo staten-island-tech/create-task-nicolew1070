@@ -2,7 +2,17 @@ import "../css/style.css";
 import { DOMSelectors } from "./num";
 const num =[1,2,3,4,5,6,7,8,9,10];
 
-function see () {
+DOMSelectors.enter.addEventListener("click", function (event) {
+    event.preventDefault
+    see();
+});
+
+let answer = num[(Math.floor(Math.random()*num.length))]
+console.log(answer); //give you a random number you have to guess 
+
+let userGuess = [];
+
+/* function see () {
 let maybe = [];
     let search = DOMSelectors.search.value
     if (isNaN(find)) {
@@ -19,8 +29,8 @@ let maybe = [];
 
     /* let guess = (search < num) ? "Higher":"Lower";
     document.getElementById("demo").innerHTML = guess; */
-}
-see ();
+//}
+//see ();
 
 /* 
 function search (arr) {
