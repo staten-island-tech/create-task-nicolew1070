@@ -12,13 +12,17 @@
     <h2>Enter a number between 1-10!</h2>
 
     <form action="" >
-      <input type="text" id="find" aria-label="Search Bar">
-        <button id="enter">Enter</button>
-        <p id="demo"></p>
+      <input type="number" id="find" aria-label="Search Bar">
+      <input type="button" value="Submit" id="enter">
       </form>
       
       <div class="buttons">
         <button class="btn" id="all">Restart</button>
+      </div>
+
+      <div>
+        <p class="guessNum"></p>
+        <p class="guess"></p>
       </div>
 
     <div id="app"></div>
