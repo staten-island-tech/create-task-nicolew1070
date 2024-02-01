@@ -2,30 +2,28 @@ import "../css/style.css";
 import { DOMSelectors } from "./num";
 const num =[1,2,3,4,5,6,7,8,9,10];
 
+let answer = num[(Math.floor(Math.random()*num.length))]
+
 DOMSelectors.enter.addEventListener("click", function (event) {
     event.preventDefault
     result();
-    guesses ();
 });
 
 function clearFields () {
     DOMSelectors.search.value = "";
 }
 
-function fields () {
-    DOMSelectors.guess.textContent = "";
-}
-
-let answer = num[(Math.floor(Math.random()*num.length))]
-console.log(answer);
-//function does not work -> no number is generated + answer not defined in the function 'result'
+function number (answer) {
+return answer;
+};
+console.log(number(answer));
 
 function result () {
     let search = DOMSelectors.search.value
-    if (search < answer) {
+    if (search < number(answer)) {
         DOMSelectors.guess.textContent = "Too Low"; 
         clearFields();
-    } else if (search > answer) {
+    } else if (search > number(answer)) {
         DOMSelectors.guess.textContent = "Too High";
         clearFields();
     } else 
@@ -35,17 +33,17 @@ function result () {
 
 DOMSelectors.restart.addEventListener("click", function (event) {
     event.preventDefault
-    again ();
-    fields ();
+    number(answer); //does not regenerate a new number
+    DOMSelectors.guess.textContent = "";
 });
 
-let guess = 1; //does not work
+let trying = 1; //does not work
 
 function guesses () {
-    if (guess === 3) {
+    if (trying === 3) {
     DOMSelectors.guess.textContent= "You're Wrong";
 }};
-guess++;
+trying++;
 
 //need to work on restarting the game 
 //need to work on limiting to 3 tries
