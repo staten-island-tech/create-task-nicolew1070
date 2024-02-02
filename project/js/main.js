@@ -33,7 +33,10 @@ function result () {
 
 DOMSelectors.restart.addEventListener("click", function (event) {
     event.preventDefault
-    number(answer); //does not regenerate a new number
+    function number (answer) {
+        return answer;
+        };
+        console.log(number(answer)); //gives the same number 
     DOMSelectors.guess.textContent = "";
 });
 
