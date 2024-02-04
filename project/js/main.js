@@ -21,15 +21,18 @@ console.log(number(answer));
 function result () {
     let search = DOMSelectors.search.value
     if (search < number(answer)) {
-        DOMSelectors.guess.textContent = "Too Low"; 
+        DOMSelectors.guess.textContent = "Wrong! Too Low"; 
+        DOMSelectors.guess.style.background = "red";
         clearFields();
     } else if (search > number(answer)) {
-        DOMSelectors.guess.textContent = "Too High";
+        DOMSelectors.guess.textContent = "Wrong! Too High";
+        DOMSelectors.guess.style.background = "red";
         clearFields();
-    } else 
+    } else {
         DOMSelectors.guess.textContent = "Correct";
+        DOMSelectors.guess.style.background = "green";
         clearFields();
-};
+}};
 
 DOMSelectors.restart.addEventListener("click", function (event) {
     event.preventDefault
@@ -41,15 +44,17 @@ DOMSelectors.restart.addEventListener("click", function (event) {
         DOMSelectors.guess.textContent = "";
 });
 
-let trying = 1; //does not work
-
-function guesses () {
-    if (trying === 3) {
-    DOMSelectors.guess.textContent= "You're Wrong";
-}};
-trying++;
+const maxGuess = 3; //needs to be fixed
+for (let i = 0; i < maxGuess; i++) {
+    if (i === maxGuess) {
+        DOMSelectors.guess.textContent = "Game Over!!! You lost!!!";
+    } else {
+        if (i > 0 ) {
+            DOMSelectors.three.textContent = "Try Again!";
+        }
+    }
+};
 
 
 //need to work on limiting to 3 tries
-//need to work on amount of times user has won 
-//do css
+//need to work on amount of times user has won --> algorithmn --> need if, then statements
