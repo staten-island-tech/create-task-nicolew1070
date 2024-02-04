@@ -33,11 +33,12 @@ function result () {
 
 DOMSelectors.restart.addEventListener("click", function (event) {
     event.preventDefault
-    function number (answer) {
+    function number () {
+        answer = num[(Math.floor(Math.random()*num.length))]
         return answer;
         };
-        console.log(number(answer)); //gives the same number 
-    DOMSelectors.guess.textContent = "";
+        console.log(number());
+        DOMSelectors.guess.textContent = "";
 });
 
 let trying = 1; //does not work
@@ -48,7 +49,7 @@ function guesses () {
 }};
 trying++;
 
-//need to work on restarting the game 
+
 //need to work on limiting to 3 tries
 //need to work on amount of times user has won 
 //do css
