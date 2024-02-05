@@ -18,7 +18,11 @@ return answer;
 };
 console.log(number(answer));
 
+let winOrLose = [];
+let maxGuess = 0;
+
 function result () {
+    maxGuess = maxGuess + 1;
     let search = DOMSelectors.search.value
     if (search < number(answer)) {
         DOMSelectors.guess.textContent = "Wrong! Too Low"; 
@@ -29,10 +33,26 @@ function result () {
         DOMSelectors.guess.style.background = "red";
         clearFields();
     } else {
-        DOMSelectors.guess.textContent = "Correct";
+        DOMSelectors.guess.textContent = "Congratulations! You guessed the number";
         DOMSelectors.guess.style.background = "green";
         clearFields();
-}};
+        winOrLose.push("correct");
+} 
+endGame();
+
+let length = winOrLose.length
+let win = 0;
+let loss = 0;
+  for (let i = 0; i < length; i++) {
+    if (winOrLose[i] == "correct") {
+      win = win + 1;
+    } else {
+      loss = loss + 1;
+    }
+  };
+DOMSelectors.wins.textContent = `Number of Wins: ${win}`;
+DOMSelectors.loss.textContent = `Number of Losses: ${loss}`;
+};
 
 DOMSelectors.restart.addEventListener("click", function (event) {
     event.preventDefault
@@ -42,19 +62,13 @@ DOMSelectors.restart.addEventListener("click", function (event) {
         };
         console.log(number());
         DOMSelectors.guess.textContent = "";
+    endGame();
 });
 
-const maxGuess = 3; //needs to be fixed
-for (let i = 0; i < maxGuess; i++) {
-    if (i === maxGuess) {
-        DOMSelectors.guess.textContent = "Game Over!!! You lost!!!";
-    } else {
-        if (i > 0 ) {
-            DOMSelectors.three.textContent = "Try Again!";
-        }
+function endGame () {
+    if (maxGuess === 3) {
+        DOMSelectors.guess.textContent = "Game Over! You Lost!";
+        winOrLose.push("wrong")
+        maxGuess = 0;
     }
-};
-
-
-//need to work on limiting to 3 tries
-//need to work on amount of times user has won --> algorithmn --> need if, then statements
+}

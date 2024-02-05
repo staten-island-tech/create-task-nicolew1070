@@ -54,7 +54,7 @@ h2 {
   font-family: 'Hind', sans-serif;
 }
 
-.guessNum {
+.wins, .loss {
   font-family: 'Hind', sans-serif;
   margin: 2.5rem 40rem 1.5rem;
   font-size:1.3rem;
